@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Experimental.GlobalIllumination;
 
-public class LightOnOff : MonoBehaviour, IPointerClickHandler
+public class LightOnOff : PowerScaler, IPointerClickHandler
 {
     [SerializeField] private GameObject _Light;
     void Start()
@@ -17,10 +17,12 @@ public class LightOnOff : MonoBehaviour, IPointerClickHandler
         if (_Light.active == false)
         {
             _Light.SetActive(true);
+            PowerUsing += 1;
         }
         else 
         {
             _Light.SetActive(false);
+            PowerUsing -= 1;
         }
     }
 }

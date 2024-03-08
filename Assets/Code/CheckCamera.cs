@@ -13,9 +13,12 @@ public class CheckCamera : PowerScaler, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        CameraCanvas.SetActive(true);
-        PowerUsing += 1;
-        MaskButton.SetActive(false);
+        if (FPowerLeft > 0)
+        {
+            CameraCanvas.SetActive(true);
+            PowerUsing += 1;
+            MaskButton.SetActive(false);
+        }
     }
 
 

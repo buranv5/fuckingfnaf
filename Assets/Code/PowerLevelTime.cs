@@ -1,27 +1,43 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelTime : PowerScaler
+public class PowerLevelTime : PowerScaler
 {
     [SerializeField] private TMPro.TMP_Text NowTime;
     private int IntTime;
+
     [SerializeField] private TMPro.TMP_Text Level;
+    private int ThenLevel;
+
     [SerializeField] private TMPro.TMP_Text PowerLeft;
-    private float FPowerLeft;
     private float TimeForUseScale;
 
     [SerializeField] private GameObject WinScreen;
     [SerializeField] private Sprite[] UsageLevels = new Sprite[5];
     [SerializeField] private Image Usege;
 
+    [SerializeField] private GameObject[] Lights = new GameObject[5];
+
+
+
     private void Start()
     {
         StartCoroutine(GameTime());
         IntTime = -1;
         WinScreen.SetActive(false);
-        FPowerLeft = 100;
         StartCoroutine(UseEnergy());
+
+        if (PlayerPrefs.HasKey("Level"))
+        {
+            ThenLevel = PlayerPrefs.GetInt("Level");
+        }
+        else
+        {
+            ThenLevel = 1;
+        }
+        Level.text = $"Night {ThenLevel}";
     }
 
     private void Update()
@@ -44,9 +60,21 @@ public class LevelTime : PowerScaler
     private IEnumerator UseEnergy()
     {
         yield return new WaitForSeconds(TimeForUseScale);
-        FPowerLeft -= 1;
-        PowerLeft.text = $"Power  left: {FPowerLeft}%";
-        StartCoroutine(UseEnergy());
+        if (FPowerLeft > 0)
+        {
+            FPowerLeft -= 1;
+            PowerLeft.text = $"Power  left: {FPowerLeft}%";
+            StartCoroutine(UseEnergy());
+        }
+        else
+        {
+            for (int i = 0; i < Lights.Length; i++)
+            {
+                Lights[i].SetActive(false);
+            }
+            PowerUsing = 1;
+        }
+
     }
     private IEnumerator GameTime()
     {
@@ -54,9 +82,14 @@ public class LevelTime : PowerScaler
         IntTime += 1;
         NowTime.text = $"0{IntTime} AM";
         if (IntTime == 6)
-        { 
+        {
+            ThenLevel += 1;
+            PlayerPrefs.SetInt("Level", ThenLevel);
+            PlayerPrefs.Save();
             WinScreen.SetActive(true);
+            SceneManager.LoadScene("Menu");
             Time.timeScale = 0;
+
         }
         StartCoroutine(GameTime());
     }

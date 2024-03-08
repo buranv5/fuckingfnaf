@@ -11,18 +11,37 @@ public class LightOnOff : PowerScaler, IPointerClickHandler
         _Light.SetActive(false);
     }
 
-    [System.Obsolete]
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_Light.active == false)
+        if (FPowerLeft > 0) 
         {
-            _Light.SetActive(true);
-            PowerUsing += 1;
+            if (!_Light.activeSelf)
+            {
+                _Light.SetActive(true);
+                PowerUsing += 1;
+            }
+            else
+            {
+                _Light.SetActive(false);
+                PowerUsing -= 1;
+            }
         }
-        else 
+    }
+
+    public void OnButtonClick()
+    {
+        if (FPowerLeft > 0)
         {
-            _Light.SetActive(false);
-            PowerUsing -= 1;
+            if (!_Light.activeSelf)
+            {
+                _Light.SetActive(true);
+                PowerUsing += 1;
+            }
+            else
+            {
+                _Light.SetActive(false);
+                PowerUsing -= 1;
+            }
         }
     }
 }

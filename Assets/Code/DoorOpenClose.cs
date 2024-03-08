@@ -14,19 +14,22 @@ public class DoorOpenClose : PowerScaler, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (IsOpen)
+        if (FPowerLeft > 0) 
         {
-            UpDoor.transform.position -= new Vector3(0, 5, 0);
-            DownDoor.transform.position += new Vector3(0, 5, 0);
-            IsOpen = false;
-            PowerUsing += 1;
-        }
-        else
-        {
-            UpDoor.transform.position += new Vector3(0, 5, 0);
-            DownDoor.transform.position -= new Vector3(0, 5, 0);
-            IsOpen = true;
-            PowerUsing -= 1;
+            if (IsOpen)
+            {
+                UpDoor.transform.position -= new Vector3(0, 5, 0);
+                DownDoor.transform.position += new Vector3(0, 5, 0);
+                IsOpen = false;
+                PowerUsing += 1;
+            }
+            else
+            {
+                UpDoor.transform.position += new Vector3(0, 5, 0);
+                DownDoor.transform.position -= new Vector3(0, 5, 0);
+                IsOpen = true;
+                PowerUsing -= 1;
+            }
         }
     }
 }

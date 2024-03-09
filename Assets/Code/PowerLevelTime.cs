@@ -55,6 +55,7 @@ public class PowerLevelTime : PowerScaler
             case 4: TimeForUseScale = 2f; break;
             case 5: TimeForUseScale = 1f; break;
         }
+        PowerLeft.text = $"Power  left: {FPowerLeft}%";
     }
 
     private IEnumerator UseEnergy()
@@ -63,7 +64,6 @@ public class PowerLevelTime : PowerScaler
         if (FPowerLeft > 0)
         {
             FPowerLeft -= 1;
-            PowerLeft.text = $"Power  left: {FPowerLeft}%";
             StartCoroutine(UseEnergy());
         }
         else

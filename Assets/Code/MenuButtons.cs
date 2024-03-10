@@ -11,6 +11,8 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] private GameObject ButtonsInMenu;
     [SerializeField] private GameObject ButtonsInOptions;
 
+    [SerializeField] private AudioSource Click;
+
     private void Start()
     {
         if (PlayerPrefs.HasKey("Level"))
@@ -26,23 +28,27 @@ public class MenuButtons : MonoBehaviour
     }
     public void OnNewGameClick() 
     {
+        Click.Play();
         SceneManager.LoadScene("MainRoom");
-        PlayerPrefs.SetInt("Level", ThenLevel);
+        PlayerPrefs.SetInt("Level", 1);
         PlayerPrefs.Save();
     }
 
     public void OnContinueClick()
     {
+        Click.Play();
         SceneManager.LoadScene("MainRoom");
     }
 
     public void OnExitClick()
     {
+        Click.Play();
         Application.Quit();
     }
 
     public void OnOptionsClick()
     {
+        Click.Play();
         ButtonsInMenu.SetActive(false);
         ButtonsInOptions.SetActive(true);
     }

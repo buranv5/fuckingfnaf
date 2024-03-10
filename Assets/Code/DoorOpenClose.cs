@@ -5,6 +5,7 @@ public class DoorOpenClose : PowerScaler, IPointerClickHandler
 {
     [SerializeField] private GameObject UpDoor;
     [SerializeField] private GameObject DownDoor;
+    [SerializeField] private AudioSource Door;
     private bool IsOpen;
     void Start()
     {
@@ -22,6 +23,7 @@ public class DoorOpenClose : PowerScaler, IPointerClickHandler
                 DownDoor.transform.position += new Vector3(0, 5, 0);
                 IsOpen = false;
                 PowerUsing += 1;
+                Door.Play();
             }
             else
             {
@@ -29,6 +31,7 @@ public class DoorOpenClose : PowerScaler, IPointerClickHandler
                 DownDoor.transform.position -= new Vector3(0, 5, 0);
                 IsOpen = true;
                 PowerUsing -= 1;
+                Door.Play();
             }
         }
     }

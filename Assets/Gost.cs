@@ -7,6 +7,7 @@ public class Gost : MonoBehaviour
     private int ActiveGost;
     private int GostIn;
     private bool GostDestroy = true;
+
     public void OnGostClick()
     {
         Gosts[ActiveGost].SetActive(false);

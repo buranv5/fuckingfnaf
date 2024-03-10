@@ -6,6 +6,8 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class LightOnOff : PowerScaler, IPointerClickHandler
 {
     [SerializeField] private GameObject _Light;
+
+    
     void Start()
     {
         _Light.SetActive(false);
@@ -43,5 +45,11 @@ public class LightOnOff : PowerScaler, IPointerClickHandler
                 PowerUsing -= 1;
             }
         }
+    }
+
+    public void FlashLightSouns()
+    {
+        AudioSource Click = GetComponent<AudioSource>();
+        Click.Play();
     }
 }

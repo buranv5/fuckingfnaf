@@ -11,6 +11,7 @@ public class FemaleGost : MonoBehaviour
     [SerializeField] Image BackGroundCamera;
     [SerializeField] GameObject FixButton;
 
+    [SerializeField] private AudioSource BreakCamera;
     private bool GostDestroy = true;
     public void OnCameraEnter()
     {
@@ -77,6 +78,7 @@ public class FemaleGost : MonoBehaviour
             FemaleGosts[ActiveGost].SetActive(false);
             UseCameraToNumber.CameraBroken[UseCameraToNumber.ActiveCameraNumber] = true;
             BackGroundCamera.color = new Color(1f, 1f, 1f, 1f);
+            BreakCamera.Play();
             FixButton.SetActive(true);
         }
     }

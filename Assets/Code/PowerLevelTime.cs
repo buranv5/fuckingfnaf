@@ -20,7 +20,7 @@ public class PowerLevelTime : PowerScaler
 
     [SerializeField] private GameObject[] Lights = new GameObject[5];
 
-
+    [SerializeField] private AudioSource PowerOff;
 
     private void Start()
     {
@@ -68,6 +68,7 @@ public class PowerLevelTime : PowerScaler
         }
         else
         {
+            PowerOff.Play();
             for (int i = 0; i < Lights.Length; i++)
             {
                 Lights[i].SetActive(false);

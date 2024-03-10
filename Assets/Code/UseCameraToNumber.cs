@@ -14,6 +14,9 @@ public class UseCameraToNumber : MonoBehaviour
     static public bool[] CameraBroken = new bool[10];
     [SerializeField] GameObject FixButton;
 
+    [SerializeField] private AudioSource CameraSwipe;
+    [SerializeField] private AudioSource BreakCamera;
+    [SerializeField] private AudioSource WorkCamera;
     private void Start()
     {
         for (int i = 0; i < CameraBroken.Length; i++)
@@ -24,6 +27,7 @@ public class UseCameraToNumber : MonoBehaviour
     }
     public void OnIconClick(Image IconClick)
     {
+        CameraSwipe.Play();
         for (int i = 0; i < CameraIcons.Length; i++)
         {
            CameraIcons[i].sprite = CameraOff; 
@@ -37,11 +41,15 @@ public class UseCameraToNumber : MonoBehaviour
                 ActiveCameraNumber = i;
                 if (CameraBroken[i] == true)
                 {
+                    BreakCamera.Play();
+                    WorkCamera.Stop();
                     BackGroundCamera.color = new Color(1f, 1f, 1f, 1f);
                     FixButton.SetActive(true);  
                 }
                 else
                 {
+                    BreakCamera.Stop();
+                    WorkCamera.Play();
                     BackGroundCamera.color = new Color(1f, 1f, 1f, 0.08f);
                     FixButton.SetActive(false);
                 }    

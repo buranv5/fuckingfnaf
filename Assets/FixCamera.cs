@@ -10,6 +10,9 @@ public class FixCamera : MonoBehaviour
     private float FixTime = 3f;
     private bool ButtonDown = false;
 
+    [SerializeField] private AudioSource Fix;
+    [SerializeField] private AudioSource BreakCamera;
+    [SerializeField] private AudioSource WorkCamera;
     public IEnumerator Fixing()
     {
         yield return new WaitForSeconds(0.01f);
@@ -24,6 +27,8 @@ public class FixCamera : MonoBehaviour
             gameObject.SetActive(false);
             FixTime = 3f;
             FixText.GetComponent<TMPro.TMP_Text>().text = $"Fixing ... {FixTime}";
+            BreakCamera.Stop();
+            WorkCamera.Play();
         }
         else
         {
@@ -36,6 +41,7 @@ public class FixCamera : MonoBehaviour
 
     public void OnFixing()
     {
+        Fix.Play();
         StartCoroutine(Fixing());
         ButtonDown = true;
     }

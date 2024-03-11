@@ -11,6 +11,8 @@ public class SmileGost : MonoBehaviour
     [SerializeField] GameObject FixButton;
 
     [SerializeField] private AudioSource BreakCamera;
+    [SerializeField] private GameObject SmileSceamer;
+    [SerializeField] private AudioSource HeartBit;
     private void Start()
     {
         Smile.color = new Color(1f, 1f, 1f, 0f);
@@ -24,20 +26,28 @@ public class SmileGost : MonoBehaviour
             Smile.color += new Color(0f, 0f, 0f, 0.05f);
             if (Smile.color.a > 0.30f)
             {
-                BreakCamera.Play();
-                Debug.Log("BOOOO");
-                //screamer
-                UseCameraToNumber.CameraBroken[UseCameraToNumber.ActiveCameraNumber] = true;
-                BackGroundCamera.color = new Color(1f, 1f, 1f, 1f);
                 Smile.color = new Color(1f, 1f, 1f, 0f);
                 SmileActive = false;
-                FixButton.SetActive(true);
+                SmileSceamer.SetActive(true);
+                SmileSceamer.GetComponent<AudioSource>().Play();
+                StartCoroutine(SmileCameraBreak());
             }
             else
             {
                 StartCoroutine(SmileScream());
             }
         }
+    }
+
+    private IEnumerator SmileCameraBreak()
+    {
+        yield return new WaitForSeconds(2.1f);
+        SmileSceamer.SetActive(false);
+        UseCameraToNumber.CameraBroken[UseCameraToNumber.ActiveCameraNumber] = true;
+        BackGroundCamera.color = new Color(1f, 1f, 1f, 1f);
+        BreakCamera.Play();
+        FixButton.SetActive(true);
+        HeartBit.Play();
     }
 
     public void OnCameraEnter()
@@ -65,15 +75,13 @@ public class SmileGost : MonoBehaviour
     {
         if (SmileActive)
         {
-            Debug.Log("BOOOO");
-            //screamer
-            UseCameraToNumber.CameraBroken[UseCameraToNumber.ActiveCameraNumber] = true;
-            BackGroundCamera.color = new Color(1f, 1f, 1f, 1f);
             Smile.color = new Color(1f, 1f, 1f, 0f);
             SmileActive = false;
-            BreakCamera.Play();
-            FixButton.SetActive(true);
+            SmileSceamer.SetActive(true);
+            SmileSceamer.GetComponent<AudioSource>().Play();
+            StartCoroutine(SmileCameraBreak());
         }
     }
+
 
 }

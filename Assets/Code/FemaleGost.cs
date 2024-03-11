@@ -13,6 +13,10 @@ public class FemaleGost : MonoBehaviour
 
     [SerializeField] private AudioSource BreakCamera;
     private bool GostDestroy = true;
+
+    [SerializeField] private AudioSource GostHere;
+    [SerializeField] private GameObject FemaleGostScreamer;
+    [SerializeField] private AudioSource HeartBit;
     public void OnCameraEnter()
     {
         float RandomCreate = Random.value;
@@ -24,6 +28,7 @@ public class FemaleGost : MonoBehaviour
             GostDestroy = false;
             if (UseCameraToNumber.ActiveCameraNumber + 1 == GostIn && !GostDestroy)
             {
+                GostHere.Play();
                 FemaleGosts[ActiveGost].SetActive(true);
                 StartCoroutine(GostAtack());
             }
@@ -33,12 +38,14 @@ public class FemaleGost : MonoBehaviour
     {
         if (UseCameraToNumber.ActiveCameraNumber + 1 == GostIn && !GostDestroy)
         {
+            GostHere.Play();
             FemaleGosts[ActiveGost].SetActive(true);
             StartCoroutine(GostAtack());
         }
         else
         {
             GostDestroy = true;
+            FemaleGosts[ActiveGost].SetActive(false);
         }
     }
 
@@ -47,6 +54,7 @@ public class FemaleGost : MonoBehaviour
         if (!GostDestroy)
         {
             GostDestroy = true;
+            FemaleGosts[ActiveGost].SetActive(false);
         }
     }
 
@@ -55,34 +63,23 @@ public class FemaleGost : MonoBehaviour
         yield return new WaitForSeconds(4f);
         if (UseCameraToNumber.ActiveCameraNumber + 1 == GostIn && !GostDestroy)
         {
-            switch (ActiveGost)
-            { 
-                case 0: 
-                Debug.Log("BOOOO3");
-                //screamer
-                break; 
-                case 1:
-                    Debug.Log("BOOOO5");
-                    //screamer
-                break; 
-                case 2:
-                    Debug.Log("BOOOO8");
-                    //screamer
-                break;
-                case 3:
-                    Debug.Log("BOOOO10");
-                    //screamer
-                break; 
-            }
             GostDestroy = true;
             FemaleGosts[ActiveGost].SetActive(false);
-            UseCameraToNumber.CameraBroken[UseCameraToNumber.ActiveCameraNumber] = true;
-            BackGroundCamera.color = new Color(1f, 1f, 1f, 1f);
-            BreakCamera.Play();
-            FixButton.SetActive(true);
+            FemaleGostScreamer.SetActive(true);
+            FemaleGostScreamer.GetComponent<AudioSource>().Play();
+            StartCoroutine(FemaleGostCameraBreak());
         }
     }
 
-
+    public IEnumerator FemaleGostCameraBreak()
+    {
+        yield return new WaitForSeconds(4f);
+        FemaleGostScreamer.SetActive(false);
+        UseCameraToNumber.CameraBroken[UseCameraToNumber.ActiveCameraNumber] = true;
+        BackGroundCamera.color = new Color(1f, 1f, 1f, 1f);
+        BreakCamera.Play();
+        FixButton.SetActive(true);
+        HeartBit.Play();
+    }
 
 }

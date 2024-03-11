@@ -8,6 +8,7 @@ public class Gost : MonoBehaviour
     private int GostIn;
     private bool GostDestroy = true;
 
+    [SerializeField] private AudioSource GostAway;
     public void OnGostClick()
     {
         Gosts[ActiveGost].SetActive(false);
@@ -48,6 +49,7 @@ public class Gost : MonoBehaviour
         yield return new WaitForSeconds(8f);
         if (!GostDestroy)
         {
+            GostAway.Play();
             Gosts[ActiveGost].SetActive(false);
             GostDestroy = true;
             PowerScaler.FPowerLeft -= 20f;

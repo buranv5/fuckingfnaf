@@ -13,6 +13,7 @@ public class PowerLevelTime : PowerScaler
 
     [SerializeField] private TMPro.TMP_Text PowerLeft;
     private float TimeForUseScale;
+    private int UnlimitPower;
 
     [SerializeField] private GameObject WinScreen;
     [SerializeField] private Sprite[] UsageLevels = new Sprite[5];
@@ -21,13 +22,28 @@ public class PowerLevelTime : PowerScaler
     [SerializeField] private GameObject[] Lights = new GameObject[5];
 
     [SerializeField] private AudioSource PowerOff;
+    [SerializeField] private GameObject PowerSmileGost;
+    [SerializeField] private GameObject SmileScreamer;
+    [SerializeField] private GameObject LossScreen;
+    [SerializeField] private AudioSource MainDoor;
 
     private void Start()
     {
         StartCoroutine(GameTime());
         IntTime = -1;
         WinScreen.SetActive(false);
-        StartCoroutine(UseEnergy());
+        if (PlayerPrefs.HasKey("UnlimitPower"))
+        {
+            UnlimitPower = PlayerPrefs.GetInt("UnlimitPower");
+        }
+        else
+        {
+            UnlimitPower = 0;
+        }
+        if (UnlimitPower == 0)
+        {
+            StartCoroutine(UseEnergy());
+        }
 
         if (PlayerPrefs.HasKey("Level"))
         {
@@ -74,6 +90,7 @@ public class PowerLevelTime : PowerScaler
                 Lights[i].SetActive(false);
             }
             PowerUsing = 1;
+            StartCoroutine(SmilePowerAtack());
         }
 
     }
@@ -88,10 +105,37 @@ public class PowerLevelTime : PowerScaler
             PlayerPrefs.SetInt("Level", ThenLevel);
             PlayerPrefs.Save();
             WinScreen.SetActive(true);
-            SceneManager.LoadScene("Menu");
-            Time.timeScale = 0;
-
+            StartCoroutine(LoadMenu());
         }
         StartCoroutine(GameTime());
+    }
+
+    private IEnumerator LoadMenu() 
+    {
+        yield return new WaitForSeconds(11f);
+        SceneManager.LoadScene("Menu");
+    }
+
+    private IEnumerator SmilePowerAtack() 
+    {
+        yield return new WaitForSeconds(15f);
+        MainDoor.Play();
+        yield return new WaitForSeconds(1f);
+        PowerSmileGost.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        PowerSmileGost.SetActive(false);
+        MainDoor.Play();
+        yield return new WaitForSeconds(1f);
+        PowerSmileGost.transform.localPosition -= new Vector3(25, 0, 0);
+        PowerSmileGost.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        PowerSmileGost.SetActive(false);
+        SmileScreamer.SetActive(true);
+        SmileScreamer.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(5f);
+        LossScreen.SetActive(true);
+        LossScreen.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("Menu");
     }
 }

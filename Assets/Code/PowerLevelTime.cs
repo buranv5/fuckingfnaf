@@ -27,6 +27,8 @@ public class PowerLevelTime : PowerScaler
     [SerializeField] private GameObject LossScreen;
     [SerializeField] private AudioSource MainDoor;
 
+    [SerializeField]private GameObject CameraCanvas;
+
     private void Start()
     {
         StartCoroutine(GameTime());
@@ -90,6 +92,7 @@ public class PowerLevelTime : PowerScaler
                 Lights[i].SetActive(false);
             }
             PowerUsing = 1;
+            CameraCanvas.SetActive(false);
             StartCoroutine(SmilePowerAtack());
         }
 

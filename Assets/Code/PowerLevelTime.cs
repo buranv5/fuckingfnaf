@@ -9,7 +9,7 @@ public class PowerLevelTime : PowerScaler
     private int IntTime;
 
     [SerializeField] private TMPro.TMP_Text Level;
-    private int ThenLevel;
+    static public int ThenLevel;
 
     [SerializeField] private TMPro.TMP_Text PowerLeft;
     private float TimeForUseScale;
@@ -28,6 +28,7 @@ public class PowerLevelTime : PowerScaler
     [SerializeField] private AudioSource MainDoor;
 
     [SerializeField]private GameObject CameraCanvas;
+    [SerializeField] private GameObject Mask;
 
     private void Start()
     {
@@ -86,6 +87,7 @@ public class PowerLevelTime : PowerScaler
         }
         else
         {
+            Mask.SetActive(false);
             PowerOff.Play();
             for (int i = 0; i < Lights.Length; i++)
             {
@@ -104,7 +106,10 @@ public class PowerLevelTime : PowerScaler
         NowTime.text = $"0{IntTime} AM";
         if (IntTime == 6)
         {
-            ThenLevel += 1;
+            if (ThenLevel < 5)
+            {
+                ThenLevel += 1;
+            }
             PlayerPrefs.SetInt("Level", ThenLevel);
             PlayerPrefs.Save();
             WinScreen.SetActive(true);

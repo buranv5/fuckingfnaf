@@ -7,6 +7,8 @@ public class DressMask : MonoBehaviour
     [SerializeField] private GameObject SaveButton;
 
     [SerializeField] private AudioSource OnMaskSound;
+
+    static public bool IsDressed;
     void Start()
     {
         Mask.SetActive(false);
@@ -15,21 +17,26 @@ public class DressMask : MonoBehaviour
 
     public void OnButtonClick()
     {
-        if (!Mask.activeSelf)
+        if (PowerScaler.FPowerLeft > 0)
         {
-            Mask.SetActive(true);
-            Mask.transform.localEulerAngles = new Vector3(0, 0, 0);
-            ToathZone.planeDistance = 1;
-            SaveButton.SetActive(true);
-            OnMaskSound.Play();
-        }
-        else 
-        {
-            OnMaskSound.Stop();
-            Mask.SetActive(false);
-            Mask.transform.localEulerAngles = new Vector3(-90, 0, 0);
-            ToathZone.planeDistance = 11;
-            SaveButton.SetActive(false);
+            if (!Mask.activeSelf)
+            {
+                Mask.SetActive(true);
+                Mask.transform.localEulerAngles = new Vector3(0, 0, 0);
+                ToathZone.planeDistance = 1;
+                SaveButton.SetActive(true);
+                OnMaskSound.Play();
+                IsDressed = true;
+            }
+            else
+            {
+                OnMaskSound.Stop();
+                Mask.SetActive(false);
+                Mask.transform.localEulerAngles = new Vector3(-90, 0, 0);
+                ToathZone.planeDistance = 11;
+                SaveButton.SetActive(false);
+                IsDressed = false;
+            }
         }
     }
 }

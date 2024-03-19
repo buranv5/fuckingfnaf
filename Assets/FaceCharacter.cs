@@ -25,7 +25,7 @@ public class FaceCharacter : MonoBehaviour
         if (PowerLevelTime.ThenLevel > 2)
         {
             float RandomCreate = Random.value;
-            if (RandomCreate > 0f && IsAway)
+            if (RandomCreate > 0.5f && IsAway)
             {
                 IsAway = false;
                 StartCoroutine(FaceRun());

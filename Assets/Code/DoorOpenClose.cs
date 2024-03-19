@@ -6,7 +6,7 @@ public class DoorOpenClose : PowerScaler, IPointerClickHandler
     [SerializeField] private GameObject UpDoor;
     [SerializeField] private GameObject DownDoor;
     [SerializeField] private AudioSource Door;
-    private bool IsOpen;
+    public bool IsOpen;
     void Start()
     {
         IsOpen = true;

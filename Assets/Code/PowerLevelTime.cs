@@ -30,6 +30,21 @@ public class PowerLevelTime : PowerScaler
     [SerializeField]private GameObject CameraCanvas;
     [SerializeField] private GameObject Mask;
 
+    [SerializeField] private GameObject LeftDoor;
+    [SerializeField] private GameObject RightDoor;
+
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey("Level"))
+        {
+            ThenLevel = PlayerPrefs.GetInt("Level");
+        }
+        else
+        {
+            ThenLevel = 1;
+        }
+        Level.text = $"Night {ThenLevel}";
+    }
     private void Start()
     {
         StartCoroutine(GameTime());
@@ -47,16 +62,6 @@ public class PowerLevelTime : PowerScaler
         {
             StartCoroutine(UseEnergy());
         }
-
-        if (PlayerPrefs.HasKey("Level"))
-        {
-            ThenLevel = PlayerPrefs.GetInt("Level");
-        }
-        else
-        {
-            ThenLevel = 1;
-        }
-        Level.text = $"Night {ThenLevel}";
     }
 
     private void Update()
@@ -68,10 +73,10 @@ public class PowerLevelTime : PowerScaler
         catch { }
         switch (PowerUsing) 
         {
-            case 1: TimeForUseScale = 15f; break;
-            case 2: TimeForUseScale = 8f; break;
-            case 3: TimeForUseScale = 4f; break;
-            case 4: TimeForUseScale = 2f; break;
+            case 1: TimeForUseScale = 12f; break;
+            case 2: TimeForUseScale = 5f; break;
+            case 3: TimeForUseScale = 2f; break;
+            case 4: TimeForUseScale = 1.5f; break;
             case 5: TimeForUseScale = 1f; break;
         }
         PowerLeft.text = $"Power  left: {FPowerLeft}%";
@@ -106,6 +111,9 @@ public class PowerLevelTime : PowerScaler
         NowTime.text = $"0{IntTime} AM";
         if (IntTime == 6)
         {
+            LeftDoor.GetComponent<DoorOpenClose>().IsOpen = false;
+            RightDoor.GetComponent<DoorOpenClose>().IsOpen = false;
+            DressMask.IsDressed = true;
             if (ThenLevel < 5)
             {
                 ThenLevel += 1;

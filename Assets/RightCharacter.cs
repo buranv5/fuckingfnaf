@@ -16,6 +16,8 @@ public class RightCharacter : MonoBehaviour
     [SerializeField] private GameObject CameraCanvas;
 
     [SerializeField] private GameObject RightLight;
+    [SerializeField] private AudioSource RightWindowScare;
+    [SerializeField] private AudioSource RightDoorPunth;
 
     private int CharPosition;
     private int CharNumber;
@@ -25,6 +27,7 @@ public class RightCharacter : MonoBehaviour
     {
         CharNumber = 0;
         CharPosition = 1;
+        RightSprites[CharNumber].SetActive(true);
         StartCoroutine(GoInCamera());
     }
     public IEnumerator GoInCamera()
@@ -35,13 +38,13 @@ public class RightCharacter : MonoBehaviour
         {
             RightRoom.Play();
             RandomCreate = Random.value;
-            if (RandomCreate > 0.3f)
+            if (RandomCreate > 0f)
             {
                 if (CharNumber == 5)
                 {
                     InRoom = true; 
                     RightSprites[CharNumber].SetActive(false);
-                    CharNumber = 0;
+                    CharNumber = 2;
                     StartCoroutine(RightCharAtack());
                     RightRoom.Play();
                 }
@@ -96,17 +99,22 @@ public class RightCharacter : MonoBehaviour
 
     private IEnumerator RightCharAtack()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        RightCharInWindow.SetActive(false);
         RightCharInDoor.SetActive(true);
         yield return new WaitForSeconds(2f);
         if (RightDoor.GetComponent<DoorOpenClose>().IsOpen == false)
         {
+            Debug.Log("Closed");
+            RightDoorPunth.Play();
             yield return new WaitForSeconds(2f);
-            RightRoom.Play();
             RightCharInDoor.SetActive(false);
             RightCharInWindow.SetActive(true);
             if (RightLight.GetComponent<LightOnOff>().IsOn == true)
             {
+                RightWindowScare.Play();
+                yield return new WaitForSeconds(1f);
+                RightCharInWindow.SetActive(false);
                 InRoom = false;
             }
             else 
@@ -119,7 +127,7 @@ public class RightCharacter : MonoBehaviour
             CameraCanvas.SetActive(false);
             RightCharScreamer.SetActive(true);
             RightCharScreamer.GetComponent<AudioSource>().Play();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             LossScreen.SetActive(true);
             LossScreen.GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(5f);

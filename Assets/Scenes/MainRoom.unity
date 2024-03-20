@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Light: {fileID: 152545534}
+  IsOn: 0
 --- !u!65 &18746528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3283,7 +3284,7 @@ GameObject:
   - component: {fileID: 245184398}
   - component: {fileID: 245184397}
   m_Layer: 5
-  m_Name: LCam4
+  m_Name: LCam9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3942,13 +3943,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311544851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.38, y: 0, z: -14.22}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.4511673, y: -5.826042, z: 1.736474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1002907274}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327524856
 GameObject:
@@ -4302,6 +4303,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1991296427}
         m_TargetAssemblyTypeName: RightCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
         m_MethodName: OnCameraSwipe
         m_Mode: 1
         m_Arguments:
@@ -4927,6 +4940,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1991296427}
         m_TargetAssemblyTypeName: RightCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
         m_MethodName: OnCameraSwipe
         m_Mode: 1
         m_Arguments:
@@ -6540,6 +6565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613881481}
+  - component: {fileID: 613881482}
   m_Layer: 0
   m_Name: Left(MAN)
   m_TagString: Untagged
@@ -6564,6 +6590,33 @@ Transform:
   m_Father: {fileID: 1002907274}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &613881482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613881480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d51173588139a224fb4f7da786c4af1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSprites:
+  - {fileID: 1700718595}
+  - {fileID: 1335596518}
+  - {fileID: 2053191089}
+  - {fileID: 245184395}
+  LeftCharInWindow: {fileID: 1994093744}
+  LeftCharInDoor: {fileID: 2135256666}
+  LeftCharScreamer: {fileID: 815398830}
+  LossScreen: {fileID: 270654530}
+  LeftRoom: {fileID: 1164676150}
+  LeftDoor: {fileID: 1515130635}
+  CameraCanvas: {fileID: 1494827985}
+  LeftLight: {fileID: 1670769115}
+  LeftWindowScare: {fileID: 1818389906}
+  LeftDoorPunth: {fileID: 1133826114}
 --- !u!1 &625036178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6698,6 +6751,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1991296427}
         m_TargetAssemblyTypeName: RightCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
         m_MethodName: OnCameraSwipe
         m_Mode: 1
         m_Arguments:
@@ -7060,6 +7125,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &673134361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7232,6 +7309,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1991296427}
         m_TargetAssemblyTypeName: RightCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
         m_MethodName: OnCameraSwipe
         m_Mode: 1
         m_Arguments:
@@ -8211,6 +8300,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1991296427}
         m_TargetAssemblyTypeName: RightCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
         m_MethodName: OnCameraSwipe
         m_Mode: 1
         m_Arguments:
@@ -10526,6 +10627,11 @@ Transform:
   - {fileID: 613881481}
   - {fileID: 1991296426}
   - {fileID: 551970565}
+  - {fileID: 1818389905}
+  - {fileID: 1164676151}
+  - {fileID: 311544853}
+  - {fileID: 1133826115}
+  - {fileID: 1505886118}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11611,6 +11717,8 @@ MonoBehaviour:
   MainDoor: {fileID: 903912346}
   CameraCanvas: {fileID: 1494827985}
   Mask: {fileID: 1762396500}
+  LeftDoor: {fileID: 1515130635}
+  RightDoor: {fileID: 5358078}
 --- !u!114 &1128129991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11623,6 +11731,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f87fbcbe8d05c24fb0f330f4b303ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1133826113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133826115}
+  - component: {fileID: 1133826114}
+  m_Layer: 0
+  m_Name: LeftDoorPunth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1133826114
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133826113}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bf8f4672917033a4eac262239849aae0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 10
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1133826115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133826113}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.5288324, y: 0.20395803, z: 25.016476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1002907274}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1138930461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11828,13 +12064,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164676149}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.16, y: 0, z: 12.734}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.231167, y: -5.826042, z: 28.690475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1002907274}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1169898053 stripped
 GameObject:
@@ -12819,7 +13055,7 @@ GameObject:
   - component: {fileID: 1335596521}
   - component: {fileID: 1335596520}
   m_Layer: 5
-  m_Name: LCam2
+  m_Name: LCam4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13017,6 +13253,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1991296427}
         m_TargetAssemblyTypeName: RightCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
         m_MethodName: OnCameraSwipe
         m_Mode: 1
         m_Arguments:
@@ -14000,6 +14248,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1478850532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14278,6 +14538,134 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1505886116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505886118}
+  - component: {fileID: 1505886117}
+  m_Layer: 0
+  m_Name: RightDoorPunth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1505886117
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505886116}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bf8f4672917033a4eac262239849aae0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 10
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1505886118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505886116}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.371833, y: -0.08804226, z: 6.8464746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1002907274}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1515130635 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3373013505947837230, guid: f5f3cd3393d748f41b76e352d8f9052f, type: 3}
@@ -15706,6 +16094,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1629182821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15851,6 +16251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Light: {fileID: 383101172}
+  IsOn: 0
 --- !u!1 &1671638144
 GameObject:
   m_ObjectHideFlags: 0
@@ -16166,6 +16567,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1991296427}
         m_TargetAssemblyTypeName: RightCharacter, Assembly-CSharp
+        m_MethodName: OnCameraSwipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613881482}
+        m_TargetAssemblyTypeName: LeftCharacter, Assembly-CSharp
         m_MethodName: OnCameraSwipe
         m_Mode: 1
         m_Arguments:
@@ -17387,6 +17800,134 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1818389904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818389905}
+  - component: {fileID: 1818389906}
+  m_Layer: 0
+  m_Name: WindowScare
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1818389905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818389904}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.77, y: 0.183, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1002907274}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1818389906
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818389904}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a2cf831b2ded34e498ce1a68b566bcfa, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1837706225
 GameObject:
   m_ObjectHideFlags: 0
@@ -18077,6 +18618,14 @@ MonoBehaviour:
   RightRoom: {fileID: 311544852}
   RightDoor: {fileID: 5358078}
   CameraCanvas: {fileID: 1494827985}
+  RightLight: {fileID: 18746523}
+  RightWindowScare: {fileID: 1818389906}
+  RightDoorPunth: {fileID: 1505886117}
+--- !u!1 &1994093744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce2769e5a09cea248a2e15b63abe4cb8, type: 3}
+  m_PrefabInstance: {fileID: 420185080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2053191089
 GameObject:
   m_ObjectHideFlags: 0
@@ -18089,7 +18638,7 @@ GameObject:
   - component: {fileID: 2053191092}
   - component: {fileID: 2053191091}
   m_Layer: 5
-  m_Name: LCam3
+  m_Name: LCam8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19035,6 +19584,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &2135256666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce2769e5a09cea248a2e15b63abe4cb8, type: 3}
+  m_PrefabInstance: {fileID: 744978805}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &471327250806118060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19417,6 +19971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Light: {fileID: 627427482}
+  IsOn: 0
 --- !u!65 &6506858703183394436
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -34,11 +34,11 @@ public class RightCharacter : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         float RandomCreate = Random.value;
-        if (RandomCreate > 0f && !InRoom)
+        if (RandomCreate > 0.5f && !InRoom)
         {
             RightRoom.Play();
             RandomCreate = Random.value;
-            if (RandomCreate > 0f)
+            if (RandomCreate > 0.2f)
             {
                 if (CharNumber == 5)
                 {
